@@ -1,0 +1,10 @@
+New-AzResourceGroup -Name cicdRG -Location "korea central"
+
+az group create --name cicdRG --location "korea central"
+
+az group deployment create --resource-group cicdRG --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/application-workloads/jenkins/jenkins-cicd-vmss/azuredeploy.json
+
+
+
+
+az resource create --resource-group $sigResourceGroup --properties @helloImageTemplateforSIG.json --is-full-object --resource-type Microsoft.VirtualMachineImages/imageTemplates -n helloImageTemplateforSIG01
